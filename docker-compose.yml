@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3031:8080"
+      - "4433:4433/udp"
+    volumes:
+      - ./uploads:/uploads
+    environment:
+      - APP_VERSION=${APP_VERSION:-1}
+      - UPLOADS_SECRET_AUTH_TOKEN=${UPLOADS_SECRET_AUTH_TOKEN:-secret}
+      - APP_BASE_URL=${APP_BASE_URL:-https://localhost:3031}
+      - STORAGE_URL=${STORAGE_URL:-osfs:///uploads}
+      - LOGO_URL=${LOGO_URL:-/static/logo-pilgrimz.svg}
+      - APP_TITLE=${APP_TITLE:-PILGRIMZ iOS/Android app distribution server}
