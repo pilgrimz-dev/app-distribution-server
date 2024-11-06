@@ -9,10 +9,10 @@ install-deps: ## Install python dependencies for development
 	pip install -r requirements.txt -r requirements-dev.txt
 
 start: ## Start a production like server
-	uvicorn --host=0.0.0.0 --port=8000 app_distribution_server.app:app
+	hypercorn --bind 0.0.0.0:8000 --quic-bind 0.0.0.0:4433 app_distribution_server.app:app
 
 dev: ## Start the local developent server
-	uvicorn --host=0.0.0.0 --port=8000 app_distribution_server.app:app --reload
+	hypercorn --bind 0.0.0.0:8000 --quic-bind 0.0.0.0:4433 app_distribution_server.app:app --reload
 
 lint: ## Lint the code according to the standards
 	ruff check .

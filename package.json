@@ -1,0 +1,22 @@
+{
+  "name": "app-distribution-server",
+  "version": "1.0.0",
+  "description": "This is a simple, self-hosted iOS/Android app distribution server (ipa and apk files).",
+  "main": "index.js",
+  "scripts": {
+    "docker:up:dev": "docker-compose up",
+    "docker:down:dev": "docker-compose down",
+    "docker:build:prod": "docker build --no-cache -t europe-west9-docker.pkg.dev/pilgrimdev-389007/app-distribution-server/app-distribution-server-prod -f Dockerfile --platform linux/x86_64 .",
+    "docker:push:prod": "docker push europe-west9-docker.pkg.dev/pilgrimdev-389007/app-distribution-server/app-distribution-server-prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pilgrimz-dev/app-distribution-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pilgrimz-dev/app-distribution-server/issues"
+  },
+  "homepage": "https://github.com/pilgrimz-dev/app-distribution-server#readme"
+}
